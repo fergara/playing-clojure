@@ -14,7 +14,9 @@
 
 ; "println" has side effects
 ; use doseq if you don´t want side-effects
+
 (for [x names] (println x))
+(for [x '(1 2 3)] (println (+ x 1)))
 
 ; Looping over a list.
 ;(doseq [n names] (println n))
