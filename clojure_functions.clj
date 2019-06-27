@@ -19,10 +19,6 @@
 (every? #{:} last-transactions)
 (every? #{1} (vals {:a 1 :b 2}))
 
-
-
-
-
 (vals [{"a" 1 "b" 2}])
 
 ;(def mynum 10)
@@ -36,3 +32,38 @@
 (println account)
 (println transaction)
 (println last-transactions)
+
+(class nil)
+
+
+(def trans (map #(select-keys % ["merchant"]) last-transactions))
+(map #(select-keys % ["merchant"]) last-transactions)
+
+(map #(select-values % ["merchant"]) last-transactions)
+
+(map #(select-values % ["merchant"]) last-transactions)
+(frequencies (map #(select-values % ["merchant"]) last-transactions))
+
+(group-by #{0} d)
+(second (first d))
+
+(some #(> 10 %) (vals d))
+(every? #(= 2 %) (vals d))
+
+(some #(when (> % 10) %) (vals d))
+
+(every? #(compare 10 %) (vals d))
+
+
+
+(def d (frequencies (map #(select-values % ["merchant"]) last-transactions)))
+(str d)
+(get-in '{"a" 1} ["a"])
+(array-map d)
+(some #{2} ["a" 1 "b" 2])
+(class d)
+(get d first)
+
+(class(frequencies (map #(select-values % ["merchant"]) last-transactions)))
+
+(count(map #(select-keys % ["merchant"]) last-transactions))
